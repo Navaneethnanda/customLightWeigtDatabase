@@ -1,0 +1,2 @@
+customerId#name#Phno#email
+121#guru#96532#gkiran@gmail.com
