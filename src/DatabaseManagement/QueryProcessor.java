@@ -1,12 +1,15 @@
 package DatabaseManagement;
 
+import Helper.Helper;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class QueryProcessor {
+    Helper helper =new Helper();
 
     Query queryObj =new Query();
-    void queryClassifier(String query){
+    public void queryClassifier(String query){
         String[] queryFragments=query.split(" ");
         if(queryFragments[0].equalsIgnoreCase("create")){createQueryProcessor(query);}
         else if(queryFragments[0].equalsIgnoreCase("select")){selectQueryProcessor(query);}
@@ -14,9 +17,12 @@ public class QueryProcessor {
         else if(queryFragments[0].equalsIgnoreCase("update")){updateQueryProcessor(query);}
         else if(queryFragments[0].equalsIgnoreCase("delete")){deleteQueryProcessor(query);}
         else{
-            System.out.println("invalid query please check your query");
+            invalidMsgPrinter();
         }
         return;
+    }
+    void invalidMsgPrinter(){
+        System.out.println("invalid query please check your query");
     }
 
     public void updateQueryProcessor(String query){
@@ -76,8 +82,10 @@ else{
     }
 
     void deleteQueryProcessor(String query){
-        String[] queryFragments=query.split("[, '\";]");
+        String[] queryFragments=Arrays.stream(query.split("[, '\";]")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
+
         if(queryFragments.length==3 && queryFragments[1].equalsIgnoreCase("from") ){
+
             queryObj.delete(queryFragments[2]);
         }
         else
@@ -86,12 +94,32 @@ else{
     }
 
     void createQueryProcessor(String query){
-        String tableName=query.split(" ")[2];
+        String[] brokenQuery=Arrays.stream(query.split(" ")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
+
+        if(!brokenQuery[1].equalsIgnoreCase("table")){
+            System.out.println(1);
+            invalidMsgPrinter();
+            return;
+        }
+        String tableName=brokenQuery[2];
+        if(tableName.contains("(") || !query.contains("(") || !query.contains(")")){
+            System.out.println(2);
+            invalidMsgPrinter();
+            return;
+        }
+
         String textBetweenString=query.substring(query.indexOf("(")+1, query.indexOf(")"));
         String[] nameTypo=textBetweenString.split(",");
         String columns="";
         for(String x:nameTypo){
-            columns+=x.split(" ")[0]+"#";
+            String[] splitted=Arrays.stream(x.split(" ")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
+
+            if(splitted.length!=2){
+                System.out.println(3);
+                invalidMsgPrinter();
+                return;
+            }
+            columns+=splitted[0]+"#";
         }
 
         queryObj.create(columns,tableName);

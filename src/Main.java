@@ -8,13 +8,12 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-//        DatabaseHandler obj1=new DatabaseHandler();
-//        obj1.authenticator();
 
+//DatabaseHandler obj=new DatabaseHandler();
+//obj.start();
 
-QueryProcessor obj1=new QueryProcessor();
-obj1.updateQueryProcessor("update customer set customerid=puk");
-
+        QueryProcessor obj1=new QueryProcessor();
+        obj1.queryClassifier("delete from cusomr");
 
 
 

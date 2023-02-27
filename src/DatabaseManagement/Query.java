@@ -70,12 +70,16 @@ public class Query{
         try {
 
             File myObj = new File("./database//"+currentUser+"//"+tableName+".table");
+            if(!myObj.exists()){
+                System.out.println("table with name "+tableName+" doesn't exist");
+            }
             Scanner myReader = new Scanner(myObj);
             String columnsRow=myReader.nextLine();
             FileWriter writer = new FileWriter("./database//"+currentUser+"//"+tableName+".table");
             writer.write(columnsRow);
             writer.close();
             myReader.close();
+            System.out.println("successfully deleted");
         } catch ( IOException e) {
             System.out.println("please check the query for table name and columns corrections");
         }

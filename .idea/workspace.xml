@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ad60d6-1065-4a65-bcac-0eb34af263f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assignment1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/currentUser.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/nanda/customer.table" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/nanda/customer.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/nanda/orders.table" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/userCredentials.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Authentication/Authenticator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DatabaseManagement/DatabaseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Helper/Helper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/currentUser.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/currentUser.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/userCredentials.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/userCredentials.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Authentication/Authenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Authenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helper/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,14 +42,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/buddy/5308/project/group10/Front-End&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/buddy/5308/project/group10/datawiz-api"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
