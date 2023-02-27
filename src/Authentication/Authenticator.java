@@ -106,12 +106,12 @@ public class Authenticator {
         System.out.println("Enter security answer : ");
         System.out.print("/> : ");
         String securityAnswer = myObj.nextLine();
-        File theDir = new File("./database//"+userName);
-        if (theDir.exists()){
+        File theDir = new File("./database//"+userName+"//");
+        if (theDir.exists()) {
             System.out.println("username already exists");
             return false;
         }
-        theDir.mkdirs();
+        theDir.mkdir();
 
 helper.addline("./database//userCredentials.txt",userName+"#"+password+"#"+securityQuestion+"#"+securityAnswer);
 

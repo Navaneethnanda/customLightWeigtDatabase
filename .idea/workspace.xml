@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="11ad60d6-1065-4a65-bcac-0eb34af263f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/database/naveen/user.table" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/nilesh/user.table" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/currentUser.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/currentUser.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/userCredentials.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/userCredentials.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Authentication/Authenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication/Authenticator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helper/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helper/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,17 +39,20 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2M0pyQuFPdZGrbTpEdIsuJUbg98" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/buddy/5308/project/group10/datawiz-api"
+    "last_opened_file_path": "/Users/lib-user/Desktop/customLightWeigtDatabase"
   }
 }]]></component>
   <component name="RunManager">
@@ -80,5 +85,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

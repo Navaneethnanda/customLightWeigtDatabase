@@ -58,6 +58,8 @@ else{
 
     void selectQueryProcessor(String query){
 
+
+
         String[] queryFragments=query.split("[, '\";]");
         ArrayList<String> a=new ArrayList<>();
         int fromPosition=0;
