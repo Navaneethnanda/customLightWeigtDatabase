@@ -64,6 +64,10 @@ else{
         ArrayList<String> columnsNames = new ArrayList<>(Arrays.asList(Arrays.stream(stringBetweenFirstBrackets.split("[, '\";]")).filter(e -> e.trim().length() > 0).toArray(String[]::new)));
         String values=query.substring(query.indexOf(")")+1);
         String[] valuesSplit=Arrays.stream(values.split("[, ()'\";]")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
+        if(valuesSplit.length==0){
+            System.out.println("please make sure that your query is in following format\n \" insert into tableName (column1,columns2,...) values (value1, value2,...); \"");
+       return;
+        }
         if(!valuesSplit[0].equalsIgnoreCase("values") || !values.contains("(") || !values.contains(")")){
 //            System.out.println(2);
 //            System.out.println(tableName);

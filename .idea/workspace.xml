@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11ad60d6-1065-4a65-bcac-0eb34af263f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/naveen/user.table" beforeDir="false" afterPath="$PROJECT_DIR$/database/naveen/user.table" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/Query.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/Navin/PAPA.table" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/currentUser.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/currentUser.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/userCredentials.txt" beforeDir="false" afterPath="$PROJECT_DIR$/database/userCredentials.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseManagement/QueryProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>

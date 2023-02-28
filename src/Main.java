@@ -10,12 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-//DatabaseHandler obj=new DatabaseHandler();
-//obj.start();
+DatabaseHandler obj=new DatabaseHandler();
+obj.start();
 
-        QueryProcessor obj1=new QueryProcessor();
-        obj1.queryClassifier("update userr set one = \"0\";");
-
+//        QueryProcessor obj1=new QueryProcessor();
+//        obj1.queryClassifier("update userr set one = \"0\";");
+//
 
 
 
