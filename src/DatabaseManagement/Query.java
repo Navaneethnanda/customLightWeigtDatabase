@@ -58,7 +58,8 @@ public class Query{
                 }
                 System.out.println("");
             }
-
+            if(a.size()!=columnNumbers.size())
+            System.out.println("if a desired column is not displayed please check for its \n spelling if not columns is printed it means \ncolumns names are incorrect");
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("please check the query for table name and columns corrections");
@@ -165,6 +166,7 @@ public class Query{
             int columnNumber=helper.findElementInArray(line.split("#"),columnsName);
             if(columnNumber==-1){
                 System.out.println("please check the column name");
+                return;
             }
 
             while ((line = br.readLine()) != null) {
@@ -182,7 +184,7 @@ public class Query{
             out.flush();
             out.close();
         } catch (Exception ex) {
-            System.out.println("something went wrong please check your query");
+            System.out.println("something went wrong please check your query for file name and columname");
         }
 
 
