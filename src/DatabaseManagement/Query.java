@@ -4,13 +4,48 @@ import Authentication.Authenticator;
 import Helper.Helper;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Query{
     Authenticator authenticator=new Authenticator();
     Helper helper = new Helper();
+
+    public void directoryCopier( ) throws IOException {
+
+        File sourceDirectory = new File("./database//nanda");
+        File targetDirectory = new File("./database//Transaction//nanda");
+
+       helper.copyFolder(sourceDirectory,targetDirectory);
+
+    }
+
+
+
+
+    public void startTransaction(){
+        String currentUser=authenticator.getCurrentUser();
+        helper.emptyFolder(new File("./database//Transaction//"));
+        helper.copyFolder(new File("./database//"+currentUser),new File("./database//Transaction//"+currentUser));
+        authenticator.setCurrentUser("Transaction//"+currentUser);
+
+    }
+    public void endTransaction(){
+        String currentUser=authenticator.getCurrentUser();
+        currentUser= Arrays.stream(currentUser.split("[/]")).filter(e -> e.trim().length() > 0).toArray(String[]::new)[1];
+        authenticator.setCurrentUser(currentUser);
+        helper.emptyFolder(new File("./database//"+currentUser));
+        helper.copyFolder(new File("./database//Transaction//"+currentUser),new File("./database//"+currentUser));
+        helper.emptyFolder(new File("./database//Transaction//"));
+
+    }
+
+
     public void select(String tableName){
     String currentUser= authenticator.getCurrentUser();
     try {
@@ -149,7 +184,6 @@ public class Query{
 
 
     }
-
 
 
     public void update(String columnsName,String value,String tableName){

@@ -1,13 +1,20 @@
 package DatabaseManagement;
 
+import Authentication.Authenticator;
 import Helper.Helper;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class QueryProcessor {
     Helper helper =new Helper();
 
+    Authenticator authenticator=new Authenticator();
     Query queryObj =new Query();
     public void queryClassifier(String query){
         String[] queryFragments=query.split(" ");
@@ -16,7 +23,11 @@ public class QueryProcessor {
         else if(queryFragments[0].equalsIgnoreCase("insert")){insertQueryProcessor(query);}
         else if(queryFragments[0].equalsIgnoreCase("update")){updateQueryProcessor(query);}
         else if(queryFragments[0].equalsIgnoreCase("delete")){deleteQueryProcessor(query);}
+        else if(queryFragments[0].equalsIgnoreCase("begin") ){beginTransactionQueryProcessor(query);}
+        else if(queryFragments[0].equalsIgnoreCase("end")){endTransactionQueryProcessor(query);}
+        else if(queryFragments[0].equalsIgnoreCase("show")){showTables(query);}
         else{
+            System.out.println(1);
             invalidMsgPrinter();
         }
         return;
@@ -24,6 +35,8 @@ public class QueryProcessor {
     void invalidMsgPrinter(){
         System.out.println("invalid query please check your query");
     }
+
+
 
 
     // for commands like "update tablename set columnname = xx"
@@ -46,7 +59,49 @@ else{
         }
     }
 
+    public void showTables(String query){
+String currentUser= authenticator.getCurrentUser();
+        String[] queryFrgments=query.split("[ ;]");
+        if(queryFrgments.length==2 && queryFrgments[1].equalsIgnoreCase("tables") ){
+            File dPath=new File("./database//"+currentUser);
+            String[] contents=dPath.list();
+            for(String s:contents){
+                System.out.println(s.split("\\.")[0]);
+            }
+        }
+        else
 
+            invalidMsgPrinter();
+        return;
+
+    }
+
+
+
+    public void beginTransactionQueryProcessor(String query){
+        String[] queryFrgments=query.split("[ ;]");
+        if(queryFrgments[1].equalsIgnoreCase("transaction") && queryFrgments.length==2){
+            queryObj.startTransaction();
+        }
+        else
+            invalidMsgPrinter();
+        return;
+
+    }
+
+
+    public void endTransactionQueryProcessor(String query){
+        String[] queryFrgments=query.split("[ ;]");
+        if(queryFrgments[1].equalsIgnoreCase("transaction") && queryFrgments.length==2){
+            queryObj.endTransaction();
+        }
+        else
+            invalidMsgPrinter();
+        return;
+
+
+
+    }
 //    #only this command works insert into tablename (dfd,fdf,fdfd) values ();
     public void insertQueryProcessor(String query){
         String[] queryFragments=Arrays.stream(query.split("[, ()'\";]")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
