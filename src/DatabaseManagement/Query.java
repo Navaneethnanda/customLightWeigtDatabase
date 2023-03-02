@@ -33,17 +33,29 @@ public class Query{
         helper.emptyFolder(new File("./database//Transaction//"));
         helper.copyFolder(new File("./database//"+currentUser),new File("./database//Transaction//"+currentUser));
         authenticator.setCurrentUser("Transaction//"+currentUser);
-
+        helper.setTransactionLog("1");
     }
-    public void endTransaction(){
+    public void commit(){
         String currentUser=authenticator.getCurrentUser();
         currentUser= Arrays.stream(currentUser.split("[/]")).filter(e -> e.trim().length() > 0).toArray(String[]::new)[1];
         authenticator.setCurrentUser(currentUser);
         helper.emptyFolder(new File("./database//"+currentUser));
         helper.copyFolder(new File("./database//Transaction//"+currentUser),new File("./database//"+currentUser));
         helper.emptyFolder(new File("./database//Transaction//"));
-
+        helper.setTransactionLog("");
+        System.out.println("Transaction ended successfully changes have been saved");
     }
+    public void rollback(){
+        String currentUser=authenticator.getCurrentUser();
+        String[] cuFragments=Arrays.stream(currentUser.split("[/]")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
+        currentUser= cuFragments[cuFragments.length-1];
+        authenticator.setCurrentUser(currentUser);
+        helper.emptyFolder(new File("./database//Transaction//"));
+        helper.setTransactionLog("");
+        System.out.println("Transaction ended successfully changes have been omitted successfully");
+    }
+
+
 
 
     public void select(String tableName){

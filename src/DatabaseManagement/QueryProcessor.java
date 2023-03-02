@@ -24,7 +24,8 @@ public class QueryProcessor {
         else if(queryFragments[0].equalsIgnoreCase("update")){updateQueryProcessor(query);}
         else if(queryFragments[0].equalsIgnoreCase("delete")){deleteQueryProcessor(query);}
         else if(queryFragments[0].equalsIgnoreCase("begin") ){beginTransactionQueryProcessor(query);}
-        else if(queryFragments[0].equalsIgnoreCase("end")){endTransactionQueryProcessor(query);}
+        else if(query.equalsIgnoreCase("commit;")){commit(query);}
+        else if(query.equalsIgnoreCase("rollback;")){rollback(query);}
         else if(queryFragments[0].equalsIgnoreCase("show")){showTables(query);}
         else{
             System.out.println(1);
@@ -70,7 +71,6 @@ String currentUser= authenticator.getCurrentUser();
             }
         }
         else
-
             invalidMsgPrinter();
         return;
 
@@ -90,18 +90,26 @@ String currentUser= authenticator.getCurrentUser();
     }
 
 
-    public void endTransactionQueryProcessor(String query){
-        String[] queryFrgments=query.split("[ ;]");
-        if(queryFrgments[1].equalsIgnoreCase("transaction") && queryFrgments.length==2){
-            queryObj.endTransaction();
-        }
-        else
-            invalidMsgPrinter();
-        return;
-
-
-
+    public void commit(String query){
+      if(helper.getTransactionLog().equalsIgnoreCase("1"))
+            queryObj.commit();
+      else{
+          System.out.println("Transaction has not started yet");
+      }
     }
+
+
+    public void rollback(String query){
+        if(helper.getTransactionLog().equalsIgnoreCase("1"))
+            queryObj.rollback();
+        else{
+            System.out.println("Transaction has not started yet");
+        }
+    }
+
+
+
+
 //    #only this command works insert into tablename (dfd,fdf,fdfd) values ();
     public void insertQueryProcessor(String query){
         String[] queryFragments=Arrays.stream(query.split("[, ()'\";]")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
@@ -189,13 +197,13 @@ String currentUser= authenticator.getCurrentUser();
             return;
         }
         String tableName=brokenQuery[2];
-        if(tableName.contains("(") || !query.contains("(") || !query.contains(")")){
+        if(tableName.contains("(") || !query.contains("(") || !(query.charAt(query.length()-2)==')')){
             System.out.println(2);
             invalidMsgPrinter();
             return;
         }
 
-        String textBetweenString=query.substring(query.indexOf("(")+1, query.indexOf(")"));
+        String textBetweenString=query.substring(query.indexOf("(")+1, query.length()-2);
         String[] nameTypo=Arrays.stream(textBetweenString.split(",")).filter(e -> e.trim().length() > 0).toArray(String[]::new);
 
         String columns="";

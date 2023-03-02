@@ -1,6 +1,7 @@
 package Helper;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class Helper {
 
@@ -63,6 +64,43 @@ public class Helper {
                 }
             }
         }
+    }
+
+    public void setTransactionLog(String s){
+        try {
+            File f1 = new File("./database//transactionLog.txt");
+            FileWriter fw = new FileWriter(f1);
+            BufferedWriter out = new BufferedWriter(fw);
+            out.write(s);
+            out.flush();
+            out.close();
+        }
+        catch (Exception ex) {
+            System.out.println("transaction process  unsuccessfull");
+        }
+    }
+
+    public String getTransactionLog(){
+
+        try {
+            File myObj = new File("./database//transactionLog.txt");
+            Scanner myReader = new Scanner(myObj);
+
+            if(myReader.hasNextLine()){
+                String data=myReader.nextLine();
+                myReader.close();
+                return data;
+            }
+            else{
+                return "#";
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("something is wrong please try again later");
+            return "#";
+        }
+
+
     }
 
     public  void emptyFolder(File folder) {
